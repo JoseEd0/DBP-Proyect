@@ -46,7 +46,7 @@ Create an application that motivates people to stay active and healthy through t
 | José Eduardo Huamani Ñaupas    | Jose            | jose.huamani@utec.edu.pe  |
 | Erick José Tataje Diaz         | ErickExploer    | erick.tataje@utec.edu.pe  |
 | Jossy Abigail Gamonal Retuerto | GmnlR           | jossy.gamonal@utec.edu.pe |
-| Eliseo Jireh Cervantes Ordóñez | eliseocervantes | @utec.edu.pe              |
+| Eliseo Jireh Cervantes Ordóñez | eliseocervantes | jireh.cervantes@utec.edu.pe|
 
 
 ## Architecture and Technologies Used ⚙️
