@@ -41,12 +41,12 @@ Create an application that motivates people to stay active and healthy through t
 - **Safety Alerts:** Notifications in case of deviation from the planned route or emergencies.
 ## Team Members 💀
 
-| Name                           | Github User     | Contact                   |
-|--------------------------------|-----------------|---------------------------|
-| José Eduardo Huamani Ñaupas    | Jose            | jose.huamani@utec.edu.pe  |
-| Erick José Tataje Diaz         | ErickExploer    | erick.tataje@utec.edu.pe  |
-| Jossy Abigail Gamonal Retuerto | GmnlR           | jossy.gamonal@utec.edu.pe |
-| Eliseo Jireh Cervantes Ordóñez | eliseocervantes | jireh.cervantes@utec.edu.pe|
+| Name                           | Github User     | Student Code | Contact                     |
+|--------------------------------|-----------------|--------------|-----------------------------|
+| José Eduardo Huamani Ñaupas    | JoseEd0         | 202310632    | jose.huamani@utec.edu.pe    |
+| Erick José Tataje Diaz         | ErickExploer    | 202320099    | erick.tataje@utec.edu.pe    |
+| Jossy Abigail Gamonal Retuerto | GmnlR           | 202310643    | jossy.gamonal@utec.edu.pe   |
+| Eliseo Jireh Cervantes Ordóñez | eliseocervantes | 202310616    | jireh.cervantes@utec.edu.pe |
 
 
 ## Architecture and Technologies Used ⚙️
