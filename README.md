@@ -43,7 +43,7 @@ Create an application that motivates people to stay active and healthy through t
 
 | Name                           | Github User     | Contact                   |
 |--------------------------------|-----------------|---------------------------|
-| José Eduardo Huamani Ñaupas    | Jose            | @utec.edu.pe              |
+| José Eduardo Huamani Ñaupas    | Jose            | jose.huamani@utec.edu.pe  |
 | Erick José Tataje Diaz         | ErickExploer    | @utec.edu.pe              |
 | Jossy Abigail Gamonal Retuerto | GmnlR           | jossy.gamonal@utec.edu.pe |
 | Eliseo Jireh Cervantes Ordóñez | eliseocervantes | @utec.edu.pe              |
