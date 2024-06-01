@@ -20,64 +20,80 @@
         private Long timeEnd;
 
         @JoinColumn(name = "vehicle_id")
-        @OneToMany
+        @ManyToOne
         private Vehicle vehicle;
 
         @JoinColumn(name = "route_id")
-        @OneToMany
+        @ManyToOne
         private Route route;
 
         public RouteVehicle() {}
 
 
         // Constructor con valores iniciales
-        public RouteVehicle(Double tiempo, Double velocidad, Long idRuta, Long idActividad) {
-            this.tiempo = tiempo;
-            this.velocidad = velocidad;
-            this.idRuta = idRuta;
-            this.idActividad = idActividad;
+        public RouteVehicle(Double duration, Integer caloriesBurned, Long timeStart, Long timeEnd) {
+            this.duration = duration;
+            this.caloriesBurned = caloriesBurned;
+            this.timeStart = timeStart;
+            this.timeEnd = timeEnd;
         }
 
         // Getters y Setters
 
-        public Long getIdHistorial() {
-            return idRouteVehicle;
+        public Long getId() {
+            return id;
         }
 
-        public void setIdHistorial(Long idHistorial) {
-            this.idRouteVehicle = idHistorial;
+        public void setId(Long id) {
+            this.id = id;
         }
 
-        public Double getTiempo() {
-            return tiempo;
+        public Double getDuration() {
+            return duration;
         }
 
-        public void setTiempo(Double tiempo) {
-            this.tiempo = tiempo;
+        public void setDuration(Double duration) {
+            this.duration = duration;
         }
 
-        public Double getVelocidad() {
-            return velocidad;
+        public Integer getCaloriesBurned() {
+            return caloriesBurned;
         }
 
-        public void setVelocidad(Double velocidad) {
-            this.velocidad = velocidad;
+        public void setCaloriesBurned(Integer caloriesBurned) {
+            this.caloriesBurned = caloriesBurned;
         }
 
-        public Long getIdRuta() {
-            return idRuta;
+        public Long getTimeStart() {
+            return timeStart;
         }
 
-        public void setIdRuta(Long idRuta) {
-            this.idRuta = idRuta;
+        public void setTimeStart(Long timeStart) {
+            this.timeStart = timeStart;
         }
 
-        public Long getIdActividad() {
-            return idActividad;
+        public Long getTimeEnd() {
+            return timeEnd;
         }
 
-        public void setIdActividad(Long idActividad) {
-            this.idActividad = idActividad;
+        public void setTimeEnd(Long timeEnd) {
+            this.timeEnd = timeEnd;
+        }
+
+        public Vehicle getVehicle() {
+            return vehicle;
+        }
+
+        public void setVehicle(Vehicle vehicle) {
+            this.vehicle = vehicle;
+        }
+
+        public Route getRoute() {
+            return route;
+        }
+
+        public void setRoute(Route route) {
+            this.route = route;
         }
 
     }
