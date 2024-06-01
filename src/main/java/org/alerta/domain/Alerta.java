@@ -2,6 +2,9 @@ package org.alerta.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.route.domain.Route;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -19,7 +22,8 @@ public class Alerta {
         this.color = color;
         this.description = description;
     }
-
+    @OneToMany(mappedBy = "alert", cascade = CascadeType.ALL)
+    private List<Route> routes;
 
     public Long getIdAlerta() {
         return id;

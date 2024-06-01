@@ -2,6 +2,7 @@ package org.vehicle.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.user.domain.User;
 
 @Data
 @Entity
@@ -21,7 +22,8 @@ public class Vehicle {
         this.name = name;
         this.nick = nick;
     }
-
+    @ManyToOne
+    private User user;
 
     public Long getIdTransporte() {
         return idTransporte;

@@ -6,11 +6,14 @@ import lombok.Data;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.user_location.domain.UserLocation;
+import org.vehicle.domain.Vehicle;
 
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -93,7 +96,10 @@ public class User implements UserDetails{
     }
     public User() {
     }
-
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<UserLocation> userLocation;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Vehicle> vehicles;
     public User(String firstName, String lastName, Date birthDate, Sex sex, String email, String password, int calorieGoal) {
         this.firstName = firstName;
         this.lastName = lastName;

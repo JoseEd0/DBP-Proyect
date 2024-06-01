@@ -33,6 +33,7 @@ public class Coordinate {
     @OneToMany(mappedBy = "coordinate",
             orphanRemoval = true
     )
+
     private List<UserLocation> users = new ArrayList<>();
 
 }
