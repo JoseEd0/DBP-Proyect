@@ -13,19 +13,19 @@
     public class RouteVehicle {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long idRouteVehicle;
-        private Double tiempo;
-        private Double velocidad;
-        private Long idRuta;
-        private Long idActividad;
+        private Long id;
+        private Double duration;
+        private Integer caloriesBurned;
+        private Long timeStart;
+        private Long timeEnd;
 
-        //@OneToMany
-        //private Vehicle vehicle;
+        @JoinColumn(name = "vehicle_id")
+        @OneToMany
+        private Vehicle vehicle;
 
-        //@OneToMany
-        //private Route route;
-
-        //private LocalTime time;
+        @JoinColumn(name = "route_id")
+        @OneToMany
+        private Route route;
 
         public RouteVehicle() {}
 

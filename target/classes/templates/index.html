@@ -1,0 +1,31 @@
+<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", {
+            "packages":["map"],
+            // Note: you will need to get a mapsApiKey for your project.
+            // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+            "mapsApiKey": "AIzaSyB_aUwlvSuuJh1hGukrdusf07XoYVP1HaM"
+        });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Lat', 'Long', 'Name'],
+                [-12.0464, -77.0428, 'Lima']
+            ]);
+
+            var map = new google.visualization.Map(document.getElementById('map_div'));
+            map.draw(data, {
+                showTooltip: true,
+                showInfoWindow: true
+            });
+        }
+
+    </script>
+</head>
+
+<body>
+<div id="map_div" style="width: 800px; height: 700px"></div>
+</body>
+</html>
