@@ -12,7 +12,7 @@ import org.vehicle.domain.Vehicle;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -22,18 +22,11 @@ public class User implements UserDetails {
     public enum Role {
         ADMIN,
         USER
-        // otros roles si existen
-    }
-
-    public enum Sex {
-        MALE,
-        FEMALE
-        // otros sexos si existen
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private Long idUser;
 
     @Enumerated(EnumType.STRING)
     private Role role;
@@ -45,7 +38,7 @@ public class User implements UserDetails {
     private String lastName;
 
     @Column(name = "birth_date", nullable = false)
-    private Date birthDate;
+    private LocalDate birthDate;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "sex", nullable = false)
@@ -85,7 +78,7 @@ public class User implements UserDetails {
     public User() {
     }
 
-    public User(String firstName, String lastName, Date birthDate, Sex sex, String email, String password, int calorieGoal) {
+    public User(String firstName, String lastName, LocalDate birthDate, Sex sex, String email, String password, int calorieGoal) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
@@ -138,12 +131,12 @@ public class User implements UserDetails {
         this.role = role;
     }
 
-    public Long getId() {
-        return id;
+    public Long getIdUser() {
+        return idUser;
     }
 
-    public void setId(Long idUser) {
-        this.id = idUser;
+    public void setIdUser(Long idUser) {
+        this.idUser = idUser;
     }
 
     public String getFirstName() {
@@ -162,11 +155,11 @@ public class User implements UserDetails {
         this.lastName = lastName;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 

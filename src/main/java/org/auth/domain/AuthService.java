@@ -6,7 +6,7 @@ import org.auth.dto.RegisterReq;
 import org.auth.exceptions.UserAlreadyExistException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.user.domain.User;
-import org.user.infraestructure.UserRepository;
+import org.user.infrastructure.UserRepository;
 import org.config.JwtService;
 import org.springframework.stereotype.Service;
 

@@ -16,7 +16,7 @@ public class UserLocation {
         this.user =  user;
         this.coordinate = coordinate;
         this.description = description;
-        this.id = new UserCoordinateId(user.getId(), coordinate.getId());
+        this.id = new UserCoordinateId(user.getIdUser(), coordinate.getId());
     }
 
     public UserLocation() {}

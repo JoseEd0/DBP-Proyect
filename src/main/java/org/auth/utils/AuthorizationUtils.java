@@ -22,7 +22,7 @@ public class AuthorizationUtils {
         User passenger = userService.findByEmail(username)
             .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + username));
 
-        return passenger.getId().equals(id) || passenger.getRole().equals(User.Role.ADMIN);
+        return passenger.getIdUser().equals(id) || passenger.getRole().equals(User.Role.ADMIN);
     }
 
     public String getCurrentUserEmail() {

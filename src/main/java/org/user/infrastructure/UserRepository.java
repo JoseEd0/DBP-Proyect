@@ -1,5 +1,4 @@
-package org.user.infraestructure;
-
+package org.user.infrastructure;
 import org.user.domain.Sex;
 import org.user.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -21,10 +20,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     List<User> findByTotalBurnedCaloriesGreaterThan(Double calories);
 
-    List<User> findBySex(User.Sex sex);
 
-
-    // Agregamos los nuevos métodos aquí
     Optional<User> findByEmail(String email);
     boolean existsByEmail(String email);
 }

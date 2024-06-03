@@ -20,7 +20,7 @@ public class JwtService {
 
     public String generateToken(User usuario) {
         return Jwts.builder()
-                .setSubject(String.valueOf(usuario.getId()))
+                .setSubject(String.valueOf(usuario.getIdUser()))
                 .setIssuedAt(new Date())
                 .setExpiration(new Date((new Date()).getTime() + expiration * 1000))
                 .signWith(SignatureAlgorithm.HS512, secret)

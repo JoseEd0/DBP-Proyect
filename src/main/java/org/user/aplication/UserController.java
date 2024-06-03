@@ -34,7 +34,7 @@ public class UserController {
 
     @PutMapping("/{id}")
     public User updateUser(@PathVariable Long id, @RequestBody User user) {
-        user.setId(id); // Aseguramos que el ID del usuario sea el correcto
+        user.setIdUser(id); // Aseguramos que el ID del usuario sea el correcto
         return userService.save(user);
     }
 
@@ -49,7 +49,7 @@ public class UserController {
     }
 
     @GetMapping("/bySex")
-    public List<User> getUsersBySex(@RequestParam("sex") User.Sex sex) {
+    public List<User> getUsersBySex(@RequestParam("sex") Sex sex) {
         return userService.findBySex(sex);
     }
 

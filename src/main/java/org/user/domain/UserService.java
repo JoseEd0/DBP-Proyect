@@ -2,7 +2,7 @@ package org.user.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.user.infraestructure.UserRepository;
+import org.user.infrastructure.UserRepository;
 
 import java.util.Date;
 import java.util.List;
@@ -33,7 +33,7 @@ public class UserService {
         return userRepository.findByBirthDateBetween(startDate, endDate);
     }
 
-    public List<User> findBySex(User.Sex sex) {
+    public List<User> findBySex(Sex sex) {
         return userRepository.findBySex(sex);
     }
 

@@ -1,4 +1,4 @@
-package org.coordinate.infraestructure;
+package org.coordinate.infrastructure;
 import org.coordinate.domain.Coordinate;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

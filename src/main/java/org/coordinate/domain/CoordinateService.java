@@ -1,6 +1,6 @@
 package org.coordinate.domain;
 
-import org.coordinate.infraestructure.CoordinateRepository;
+import org.coordinate.infrastructure.CoordinateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
