@@ -13,50 +13,37 @@ import org.springframework.stereotype.Service;
 @Service
 public class AuthService {
 
-    private final UserRepository usuarioRepository;
-    private final LoginRepository loginRepository;
+    private final UserRepository userRepository;
     private final JwtService jwtService;
 
-    public AuthService(UserRepository usuarioRepository, LoginRepository loginRepository, JwtService jwtService) {
-        this.usuarioRepository = usuarioRepository;
-        this.loginRepository = loginRepository;
+    public AuthService(UserRepository userRepository, JwtService jwtService) {
+        this.userRepository = userRepository;
         this.jwtService = jwtService;
     }
 
-    public JwtAuthResponse login(LoginReq req) {
-        Login login = loginRepository.findByEmail(req.getEmail())
-                .orElseThrow(() -> new UserAlreadyExistException("Email is not registered"));
-
-        if (!req.getPassword().equals(login.getPassword()))
-            throw new IllegalArgumentException("Password is incorrect");
-
-        User usuario = usuarioRepository.findById(login.getIdUsuario())
+    public JwtAuthResponse login(LoginReq req){
+        User user = userRepository.findByEmail(req.getEmail())
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
-        JwtAuthResponse response = new JwtAuthResponse();
-        response.setToken(jwtService.generateToken(usuario));
-        return response;
+        if (!req.getPassword().equals(user.getPassword()))
+            throw new IllegalArgumentException("Password is incorrect");
+
+        String token = jwtService.generateToken(user);
+
+        return new JwtAuthResponse(token);
     }
 
     public JwtAuthResponse register(RegisterReq req){
-        if (loginRepository.existsByEmail(req.getEmail()))
+        if (userRepository.existsByEmail(req.getEmail()))
             throw new UserAlreadyExistException("Email is already registered");
 
-        User usuario = new User();
-        usuario.setNombre(req.getFirstName());
-        usuario.setApellido(req.getLastName());
-        usuarioRepository.save(usuario);
+        User user = new User();
+        user.setEmail(req.getEmail());
+        user.setPassword(req.getPassword()); // Make sure to hash the password before saving
+        userRepository.save(user);
 
-        Login login = new Login();
-        login.setEmail(req.getEmail());
-        login.setPassword(req.getPassword());
-        login.setIdUsuario(usuario.getIdUsuario());
-        loginRepository.save(login);
+        String token = jwtService.generateToken(user);
 
-        JwtAuthResponse response = new JwtAuthResponse();
-        response.setToken(jwtService.generateToken(usuario));
-        return response;
-      Apellido(req.getLastName());
-
+        return new JwtAuthResponse(token);
     }
 }

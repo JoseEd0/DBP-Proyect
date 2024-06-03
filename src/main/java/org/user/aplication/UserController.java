@@ -49,7 +49,7 @@ public class UserController {
     }
 
     @GetMapping("/bySex")
-    public List<User> getUsersBySex(@RequestParam("sex") Sex sex) {
+    public List<User> getUsersBySex(@RequestParam("sex") User.Sex sex) {
         return userService.findBySex(sex);
     }
 

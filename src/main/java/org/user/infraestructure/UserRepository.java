@@ -20,4 +20,11 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByHeightBetween(Double minHeight, Double maxHeight);
 
     List<User> findByTotalBurnedCaloriesGreaterThan(Double calories);
+
+    List<User> findBySex(User.Sex sex);
+
+
+    // Agregamos los nuevos métodos aquí
+    Optional<User> findByEmail(String email);
+    boolean existsByEmail(String email);
 }
