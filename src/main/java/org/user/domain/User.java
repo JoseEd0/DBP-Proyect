@@ -17,11 +17,26 @@ import java.util.List;
 
 @Data
 @Entity
-public class User implements UserDetails{
+public class User implements UserDetails {
+
+    public enum Role {
+        ADMIN,
+        USER
+        // otros roles si existen
+    }
+
+    public enum Sex {
+        MALE,
+        FEMALE
+        // otros sexos si existen
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
@@ -32,6 +47,7 @@ public class User implements UserDetails{
     @Column(name = "birth_date", nullable = false)
     private Date birthDate;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "sex", nullable = false)
     private Sex sex;
 
@@ -60,9 +76,28 @@ public class User implements UserDetails{
     @Column(name = "created_at", nullable = false)
     private ZonedDateTime createdAt;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<UserLocation> userLocation;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Vehicle> vehicles;
+
+    public User() {
+    }
+
+    public User(String firstName, String lastName, Date birthDate, Sex sex, String email, String password, int calorieGoal) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        this.sex = sex;
+        this.email = email;
+        this.password = password;
+        this.goalCaloriesBurned = goalCaloriesBurned;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-    return new ArrayList<>();
+        return new ArrayList<>();
     }
 
     @Override
@@ -94,22 +129,14 @@ public class User implements UserDetails{
     public boolean isEnabled() {
         return true;
     }
-    public User() {
-    }
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<UserLocation> userLocation;
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Vehicle> vehicles;
-    public User(String firstName, String lastName, Date birthDate, Sex sex, String email, String password, int calorieGoal) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthDate = birthDate;
-        this.sex = sex;
-        this.email = email;
-        this.password = password;
-        this.goalCaloriesBurned = goalCaloriesBurned;
+
+    public Role getRole() {
+        return role;
     }
 
+    public void setRole(Role role) {
+        this.role = role;
+    }
 
     public Long getId() {
         return id;
@@ -159,4 +186,59 @@ public class User implements UserDetails{
         this.email = email;
     }
 
+    public Double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Double weight) {
+        this.weight = weight;
+    }
+
+    public Double getHeight() {
+        return height;
+    }
+
+    public void setHeight(Double height) {
+        this.height = height;
+    }
+
+    public Double getTotalBurnedCalories() {
+        return totalBurnedCalories;
+    }
+
+    public void setTotalBurnedCalories(Double totalBurnedCalories) {
+        this.totalBurnedCalories = totalBurnedCalories;
+    }
+
+    public Double getTotalDistanceTraveled() {
+        return totalDistanceTraveled;
+    }
+
+    public void setTotalDistanceTraveled(Double totalDistanceTraveled) {
+        this.totalDistanceTraveled = totalDistanceTraveled;
+    }
+
+    public ZonedDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(ZonedDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public List<UserLocation> getUserLocation() {
+        return userLocation;
+    }
+
+    public void setUserLocation(List<UserLocation> userLocation) {
+        this.userLocation = userLocation;
+    }
+
+    public List<Vehicle> getVehicles() {
+        return vehicles;
+    }
+
+    public void setVehicles(List<Vehicle> vehicles) {
+        this.vehicles = vehicles;
+    }
 }
